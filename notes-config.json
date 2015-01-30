@@ -1,0 +1,33 @@
+{
+  "log": ["CRUD", "REST+", "Access"],
+    "facebook": {
+      "register": true
+    },
+    "databases": {
+      "editor": {
+        "server": "walrus:",
+        "bucket": "default",
+        "users": {
+          "GUEST": {
+            "disabled": true
+          }
+        },
+        "sync": `
+          function(doc, oldDoc) {
+            log('processing doc with id :: ' + doc._id);
+
+            switch(doc.type) {
+              case 'profile':
+                access(doc.name, 'public_notes');
+                break;
+              case 'note':
+                if (doc.published) {
+                  channel('public');
+                }
+                break;
+            }
+          }
+        `
+      }
+    }
+}
