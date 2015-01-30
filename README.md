@@ -10,7 +10,7 @@ pod install
 
 ## Running the app with SyncGateway
 
-Downlaod the SyncGateway binary from [here](http://www.couchbase.com/nosql-databases/downloads) and start it with notes-config.json:
+Download the SyncGateway binary from [here](http://www.couchbase.com/nosql-databases/downloads) and start it with notes-config.json:
 
 ```bash
 $ ~/Downloads/sync_gateway/bin/sync_gateway notes-config.json
